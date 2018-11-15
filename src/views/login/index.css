@@ -1,0 +1,29 @@
+#login {
+  background: url(../../assets/img/login.png) no-repeat center center;
+  width: 100% !important;
+  height: 100% !important;
+}
+#login-bk {
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.4);
+}
+#login-size {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  box-shadow: 5px 0px 18px rgba(0, 0, 0, 0.1);
+  width: 400px !important;
+  height: 400px !important;
+}
+#login-form{
+  margin: 30px 60px 0px 60px;
+}
+.login-form-varifyCode{
+  display:flex;
+  justify-content:space-between;
+}
+#code{
+  width:100px;
+  height: 35px;
+  margin-left:20px;
+}

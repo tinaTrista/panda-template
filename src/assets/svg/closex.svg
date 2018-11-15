@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Alert/Default/Success" transform="translate(-577.000000, -15.000000)">
+            <g id="Group" transform="translate(576.000000, 14.000000)">
+                <rect id="Rectangle" x="0" y="0" width="12" height="12"></rect>
+                <path d="M6.66291261,6 L10.3420776,9.67916497 C10.5251358,9.86222323 10.5251358,10.1590193 10.3420776,10.3420776 C10.1590193,10.5251358 9.86222323,10.5251358 9.67916497,10.3420776 L6,6.66291261 L2.32083503,10.3420776 C2.13777677,10.5251358 1.84098068,10.5251358 1.65792242,10.3420776 C1.47486416,10.1590193 1.47486416,9.86222323 1.65792242,9.67916497 L5.33708739,6 L1.65792242,2.32083503 C1.47486416,2.13777677 1.47486416,1.84098068 1.65792242,1.65792242 C1.84098068,1.47486416 2.13777677,1.47486416 2.32083503,1.65792242 L6,5.33708739 L9.67916497,1.65792242 C9.86222323,1.47486416 10.1590193,1.47486416 10.3420776,1.65792242 C10.5251358,1.84098068 10.5251358,2.13777677 10.3420776,2.32083503 L6.66291261,6 Z" id="Combined-Shape" fill-opacity="0.45" fill="#000000"></path>
+            </g>
+        </g>
+    </g>
+</svg>
