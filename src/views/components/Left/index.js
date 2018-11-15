@@ -1,21 +1,26 @@
 import React, {Component} from 'react';
+import {withRouter} from "react-router-dom";
 import {Menu, Icon} from 'antd'
-const menuConfig = require('../../constant.js').siderbar
+const menuConfig = require('../../../constant.js').siderbar
 class Left extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.match)
     this.state = {
       collapsed: true
     }
   }
+  handleClick = (e) => {
+    //console.log('click ', e);
+    let item = menuConfig[parseInt(e.key)]
+    console.log(item)
+    this.props.history.push(item.path);
+  }
   render() {
-    console.log(menuConfig)
     return (
       <div>
         <Menu
+          onClick = {this.handleClick}
           defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
           mode="inline"
           theme="dark"
           inlineCollapsed={this.state.collapsed}
@@ -33,4 +38,4 @@ class Left extends Component {
   }
 }
 
-export default Left;
+export default withRouter(Left);

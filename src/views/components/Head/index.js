@@ -9,7 +9,7 @@ class Head extends Component {
   render() {
     return (
       <div id='header'>
-        <img className="header-logo" src={require('../../assets/img/logo.png')}/>
+        <img className="header-logo" src={require('../../../assets/img/logo.png')}/>
         <div className="header-avatar">
           <Avatar style={{backgroundColor: '#87d068'}} icon="user" size={35} />
           <span>{this.props.userName? this.props.userName:'mzcc'}</span>
