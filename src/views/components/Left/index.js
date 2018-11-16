@@ -10,9 +10,7 @@ class Left extends Component {
     }
   }
   handleClick = (e) => {
-    //console.log('click ', e);
     let item = menuConfig[parseInt(e.key)]
-    console.log(item)
     this.props.history.push(item.path);
   }
   render() {
@@ -20,7 +18,7 @@ class Left extends Component {
       <div>
         <Menu
           onClick = {this.handleClick}
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={['0']}
           mode="inline"
           theme="dark"
           inlineCollapsed={this.state.collapsed}

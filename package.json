@@ -2,6 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "proxy":"http://192.168.204.90:7040",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
@@ -20,6 +21,7 @@
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
     "echarts": "^4.2.0-rc.2",
+    "echarts-for-react": "^2.0.15-beta.0",
     "eslint": "5.6.0",
     "eslint-config-react-app": "^3.0.3",
     "eslint-loader": "2.1.1",
@@ -114,6 +116,7 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.11.0"
+    "babel-plugin-import": "^1.11.0",
+    "mockjs": "^1.0.1-beta3"
   }
 }

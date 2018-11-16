@@ -2,19 +2,26 @@ import React from 'react'
 import { Radio ,Form, Icon, Input, Button, Checkbox, message} from 'antd'
 import {withRouter} from "react-router-dom";
 import "./index.css"
-import $api from "../../axios/index"
-
+import api from "../../axios/index"
+import cookie from "../../util/cookie"
 const RadioGroup = Radio.Group
 const FormItem = Form.Item
 
+
+/**
+ * [Login ]
+ * @extends React
+ * JavaScript函数中的this不是在函数声明的时候定义的，而是在函数调用（即运行）的时候定义的
+ */
 class Login extends React.Component {
   //产生验证码
-  createCode() {
-    $api.getVarifyCode().then((res) => {
-      this.loginData.vcodekey = res.headers.vcodekey
+  createCode(e) {
+    console.log('ddd', this, e)
+    api.post('/cspweb/code/getCode').then((res) => {
       document.getElementById('code').src = 'data:image/png;base64,' + res.data
     })
   }
+
   handleSubmit = (e) => {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
@@ -22,12 +29,14 @@ class Login extends React.Component {
           console.log('Received values of form: ', values);
           // 请求登录接口 成功之后跳转首页
           // test
-          if(values.mobile === 'lisa' && values.password === '123123') {
-            //路由进入首页
-            this.props.history.push("/dashboard");
-          } else {
-            message.error('登录失败')
-          }
+          api.post('/react/login').then(res=>{
+            if(res.code === '200'){
+              cookie.set('token', res.data.token)
+              this.props.history.push("/dashboard");
+            } else {
+              message.error('登录失败')
+            }
+          })
         }
       });
   }
@@ -60,7 +69,7 @@ class Login extends React.Component {
                 {getFieldDecorator('picVerifyCode', {rules: [{ required: true, message: 'Please input your varifyCode!' }],})(
                   <div className="login-form-varifyCode">
                     <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="input" placeholder="varifyCode"/>
-                    <img id="code" onClick={this.createCode}></img>
+                    <img id="code" onClick={(e)=>this.createCode(e)} alt="验证码"></img>
                   </div>
                 )}
               </FormItem>

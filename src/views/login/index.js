@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import LogIN from './login'
 import Register from './register'
 import Forget from './forget'
-import Left from '../../components/Left/index'
 import "./index.css"
 
 class Login extends Component {
