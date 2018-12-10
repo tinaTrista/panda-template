@@ -24,4 +24,12 @@ api.post = (url, data = {}, config = {}) => new Promise(((resolve, reject) => {
       reject(err)
     })
 }))
+api.get = (url, data = {}, config = {}) => new Promise(((resolve, reject) => {
+  axios.get(url, data, config)
+    .then((response) => {
+      resolve(response.data)
+    }, (err) => {
+      reject(err)
+    })
+}))
 export default api

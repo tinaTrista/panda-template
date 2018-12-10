@@ -17,8 +17,8 @@ class Login extends React.Component {
   //产生验证码
   createCode(e) {
     console.log('ddd', this, e)
-    api.post('/cspweb/code/getCode').then((res) => {
-      document.getElementById('code').src = 'data:image/png;base64,' + res.data
+    api.get('/cspweb/code/getCode').then((res) => {
+      document.getElementById('code').src = 'data:image/png;base64,' + res
     })
   }
 
@@ -28,11 +28,10 @@ class Login extends React.Component {
         if (!err) {
           console.log('Received values of form: ', values);
           // 请求登录接口 成功之后跳转首页
-          // test
           api.post('/react/login').then(res=>{
             if(res.code === '200'){
               cookie.set('token', res.data.token)
-              this.props.history.push("/dashboard");
+              this.props.history.push("/app/dashboard");
             } else {
               message.error('登录失败')
             }

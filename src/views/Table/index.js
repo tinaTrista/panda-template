@@ -1,15 +1,46 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AppWrapper from '../AppWrapper'
-import Title from '../components/title'
-import { Table , Card} from 'antd';
+import { Table ,Tag, Divider} from 'antd';
 
-import asyncComponent from '../../asyncComponent'
-import columns from './columns'
 import '../../mock'
 
-
+const columns = [{
+  title: 'Name',
+  dataIndex: 'name',
+  key: 'name',
+  render: text => <a href="javascript:;">{text}</a>,
+}, {
+  title: 'Age',
+  dataIndex: 'age',
+  key: 'age',
+}, {
+  title: 'Address',
+  dataIndex: 'address',
+  key: 'address',
+}, {
+  title: 'Tags',
+  key: 'tags',
+  dataIndex: 'tags',
+  render: tags => (
+    <span>
+      {tags.map(tag => <Tag color="blue" key={tag}>{tag}</Tag>)}
+    </span>
+  ),
+}, {
+  title: 'Action',
+  key: 'action',
+  render: (text, record) => (
+    <span>
+      <a href="javascript:;">Invite {record.name}</a>
+      <Divider type="vertical" />
+      <a href="javascript:;" onClick={(e)=>handleDel(e)}>Delete</a>
+    </span>
+  ),
+}];
+function handleDel(e) {
+  console.log(e)
+}
 class TablePage extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +51,7 @@ class TablePage extends Component {
       dataSource: []
     }
   }
+
   onSelectChange() {
   }
   componentWillMount() {
@@ -38,13 +70,10 @@ class TablePage extends Component {
     };
     return (
       <div className="dashboard">
-        <Title name={this.state.name}></Title>
-        <Card>
           <Table rowSelection={rowSelection} dataSource={this.state.dataSource} columns={columns} />
-        </Card>
       </div>
     );
   }
 }
 
-export default AppWrapper(TablePage);
+export default AppWrapper(TablePage, 'Table');

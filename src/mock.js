@@ -24,4 +24,11 @@ Mock.mock(
     'code': '200'
   }
 )
+Mock.mock(
+  '/react/table/delete',
+  {
+    'msg': 'success',
+    'code': '200'
+  }
+)
 export default Mock;

@@ -1,7 +1,9 @@
 import React from 'react'
-import Left from './components/Left/index'
+import Left from './components/Left'
 import Head from './components/Head/index'
-export default function AppWrapper (Component) {
+import Title from './components/title'
+import {Card} from 'antd';
+export default function AppWrapper (Component, name) {
   return class WarpComponent extends React.Component {
     constructor (props) {
       super(props)
@@ -14,13 +16,9 @@ export default function AppWrapper (Component) {
 
     render () {
       return (
-        <div className="app-layout">
-            <div className="app-header-nav"><Head></Head></div>
-            <div className="app-sidebar"><Left></Left></div>
-            <div className="app-content">
-               <Component {...this.props}></Component>
-            </div>
-        </div>
+              <Card>
+                 <Component {...this.props}></Component>
+              </Card>
       )
     }
   }

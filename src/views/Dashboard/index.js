@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
-
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import AppWrapper from '../AppWrapper'
 import Title from '../components/title'
 import { Card } from 'antd';
 import './index.css'
-
-import echarts from 'echarts/lib/echarts' //必须
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/grid'
 import 'echarts/lib/chart/bar'
@@ -45,4 +40,4 @@ class Dashboard extends Component {
   }
 }
 
-export default AppWrapper(Dashboard);
+export default Dashboard;

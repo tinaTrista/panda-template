@@ -1,8 +1,8 @@
 
 const siderbar = [
-  {name:'dashboard', type:'dashboard', path:'/dashboard'},
-  {name:'table', type:'table', path:'/table'},
-  {name:'apple', type:'apple', path:'/apple'},
+  {name:'dashboard', type:'dashboard', path:'/app/dashboard'},
+  {name:'table', type:'table', path:'/app/table'},
+  {name:'apple', type:'apple', path:'/app/apple'},
   // {name:'taobao', type:'taobao-circle', path:'/dashboard'},
   // {name:'github', type:'github', path:'/dashboard'},
   // {name:'amazon', type:'amazon', path:'/dashboard'},

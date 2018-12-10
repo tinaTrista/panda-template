@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from "react-router-dom";
 import {Menu, Icon} from 'antd'
-const menuConfig = require('../../../constant.js').siderbar
+const menuConfig = require('../../constant.js').siderbar
 class Left extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +12,7 @@ class Left extends Component {
   handleClick = (e) => {
     let item = menuConfig[parseInt(e.key)]
     this.props.history.push(item.path);
+    console.log(item.path, this.props)
   }
   render() {
     return (

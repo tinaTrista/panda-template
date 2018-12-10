@@ -1,5 +1,10 @@
 import { Tag, Divider} from 'antd';
 import React from 'react';
+function handleDel(){
+  api.post('/react/table/delete').then(res=>{
+    console.log(res)
+  })
+}
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
@@ -29,8 +34,9 @@ const columns = [{
     <span>
       <a href="javascript:;">Invite {record.name}</a>
       <Divider type="vertical" />
-      <a href="javascript:;">Delete</a>
+      <a href="javascript:;" onClick="handleDel">Delete</a>
     </span>
   ),
 }];
+
 export default columns;
