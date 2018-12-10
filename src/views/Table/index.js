@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import AppWrapper from '../AppWrapper'
-import { Table ,Tag, Divider} from 'antd';
-
+import { Table ,Tag, Divider, Message} from 'antd';
+import Title from '../components/title'
+import Left from '../components/Left/index'
+import Head from '../components/Head/index'
 import '../../mock'
 
 const columns = [{
@@ -34,12 +35,15 @@ const columns = [{
     <span>
       <a href="javascript:;">Invite {record.name}</a>
       <Divider type="vertical" />
-      <a href="javascript:;" onClick={(e)=>handleDel(e)}>Delete</a>
+      <a href="javascript:;" onClick={(e)=>handleDel(e, record)}>Delete</a>
     </span>
   ),
 }];
-function handleDel(e) {
-  console.log(e)
+function handleDel(e, record) {
+//  console.log(e,record)
+  axios.post('/react/table/delete', record).then(res=>{
+    Message.error(res.data.msg)
+  })
 }
 class TablePage extends Component {
   constructor(props) {
@@ -58,7 +62,7 @@ class TablePage extends Component {
     // fetch data
     axios.post('/react/table/list').then(res=>{
       this.setState({
-        dataSource: res.data.data
+        dataSource: res.data.data,
       })
     })
   }
@@ -69,11 +73,16 @@ class TablePage extends Component {
       onChange: this.onSelectChange,
     };
     return (
-      <div className="dashboard">
-          <Table rowSelection={rowSelection} dataSource={this.state.dataSource} columns={columns} />
+      <div className="content">
+        <Head></Head>
+        <Left path={this.props.location.pathname}></Left>
+        <div className="app-right">
+          <Title name={this.state.name}></Title>
+          <Table className="table" rowSelection={rowSelection} dataSource={this.state.dataSource} columns={columns} />
+        </div>
       </div>
     );
   }
 }
 
-export default AppWrapper(TablePage, 'Table');
+export default TablePage;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from "react-router-dom";
 import {Menu, Icon} from 'antd'
-const menuConfig = require('../../constant.js').siderbar
+const menuConfig = require('../../../constant.js').siderbar
 class Left extends Component {
   constructor(props) {
     super(props);
@@ -10,24 +10,24 @@ class Left extends Component {
     }
   }
   handleClick = (e) => {
-    let item = menuConfig[parseInt(e.key)]
-    this.props.history.push(item.path);
-    console.log(item.path, this.props)
+    this.props.history.push(e.key);
   }
   render() {
+    console.log(this.props.path)
     return (
-      <div>
+      <div className="app-sidebar">
         <Menu
           onClick = {this.handleClick}
-          defaultSelectedKeys={['0']}
+          defaultOpenKeys={['/dashboard']}
+          selectedKeys={[this.props.path]}
           mode="inline"
           theme="dark"
           inlineCollapsed={this.state.collapsed}
         >
         {menuConfig.map(function(item,index){
           return (
-          <Menu.Item key={index}>
-            <Icon type={item.type} />
+          <Menu.Item key={item.path}>
+            <Icon type={item.name} />
             <span>{item.name}</span>
           </Menu.Item>)
         })}

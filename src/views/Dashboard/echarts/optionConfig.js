@@ -84,9 +84,9 @@ export const barOption = {
 
 //折线图数据
 export const lineOption = {
-  title: {
-    text: '堆叠区域图'
-  },
+  // title: {
+  //   text: '堆叠区域图'
+  // },
   tooltip : {
     trigger: 'axis',
     axisPointer: {
@@ -101,7 +101,7 @@ export const lineOption = {
   },
   toolbox: {
     feature: {
-      saveAsImage: {}
+      // saveAsImage: {}
     }
   },
   grid: {
@@ -545,9 +545,9 @@ export const mapOption = {
 
 //雷达图数据
 export const radarOption = {
-  legend: {
-    data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
-  },
+  // legend: {
+  //   data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+  // },
   radar: {
     // shape: 'circle',
     indicator: [

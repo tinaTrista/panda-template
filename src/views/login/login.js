@@ -31,7 +31,7 @@ class Login extends React.Component {
           api.post('/react/login').then(res=>{
             if(res.code === '200'){
               cookie.set('token', res.data.token)
-              this.props.history.push("/app/dashboard");
+              this.props.history.push("/dashboard");
             } else {
               message.error('登录失败')
             }
